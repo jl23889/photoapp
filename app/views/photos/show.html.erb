@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @photo.name %>
+</p>
+
+<p>
+  <%= image_tag @photo.image.url %>
+</p>
+
+<% if @photo.comments.size > 0 %>
+  <strong>Comments</strong>
+  <% for comment in @photo.comments %>
+    <h3><%= comment.name %></h3>
+    <p><%= comment.content %></p>
+  <% end %>
+<% end %>
+
+<strong>New Comment</strong>
+<%= form_for [@photo, Comment.new] do |f| %>
+  <p><%= f.label :name %> <%= f.text_field :name %></p>
+  <p><%= f.text_area :content, :rows => 10 %></p>
+  <p><%= f.submit %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>

@@ -60,6 +60,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     connection_pool (2.1.0)
+    daemon_controller (1.2.0)
     erubis (2.7.0)
     execjs (2.2.2)
     ffi (1.9.6)
@@ -106,6 +107,10 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    passenger (4.0.56)
+      daemon_controller (>= 1.2.0)
+      rack
+      rake (>= 0.8.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -180,6 +185,7 @@ DEPENDENCIES
   jquery-rails
   mongoid (~> 4)!
   mongoid-paperclip
+  passenger
   pry
   rails (= 4.1.8)
   sass-rails (~> 4.0.3)

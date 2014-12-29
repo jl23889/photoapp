@@ -71,6 +71,4 @@ test:
 production:
   sessions:
     default:
-      database: photoapp_production
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['MONGOHQ_URL'] %>

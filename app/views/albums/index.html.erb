@@ -4,7 +4,24 @@
   <% @albums.each do |album| %>
     <div class="col-xs-6 col-sm-3 col-md-2">
       <div class="thumbnail">
+        <div id=<%= "album_carousel_"+album.id.to_s %> class="carousel slide" data-ride="carousel" data-interval="false">
+          <div class="carousel-inner" role="listbox">
+            <% album.photos.each do |photo| %>
+              <div class="item">
+                <%= link_to(album) do %>
+                  <%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
 
+          <a class="left carousel-control" href=<%= "#album_carousel_"+album.id.to_s %> role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" style="font-size:15px" aria-hidden="true"></span>
+          </a>
+          <a class="right carousel-control" href=<%= "#album_carousel_"+album.id.to_s %> role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" style="font-size:15px" aria-hidden="true"></span>
+          </a>
+        </div>
         <div class="caption">
           <h3><%= album.name %></h3>
           <p><%= album.user.username if !album.user.nil? %></p>

@@ -8,6 +8,7 @@ class User
   validates_uniqueness_of :username
   validates_confirmation_of :password
   has_many :photos
+  has_many :albums
 
   def self.authenticate(username, password)
   	user = User.find_by(username: username)

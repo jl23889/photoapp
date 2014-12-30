@@ -25,6 +25,7 @@ class AlbumsController < ApplicationController
   # POST /albums.json
   def create
     @album = Album.new(album_params)
+    @album.user_id = session[:user_id]
 
     respond_to do |format|
       if @album.save

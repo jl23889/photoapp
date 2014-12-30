@@ -21,5 +21,6 @@
 	<% end %>
 <% end %>
 
-<%= link_to 'Edit', edit_album_path(@album) %> |
-<%= link_to 'Back', albums_path %>
+<% if @album.user == current_user %>         
+  <%= link_to 'Edit', edit_album_path(@album) %>
+<% end %>

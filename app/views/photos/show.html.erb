@@ -24,5 +24,6 @@
   <p><%= f.submit %></p>
 <% end %>
 
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<% if @photo.user == current_user %>         
+  <%= link_to 'Edit', edit_photo_path(@photo) %>
+<% end %>

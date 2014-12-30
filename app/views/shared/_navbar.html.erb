@@ -5,8 +5,16 @@
 		</div>
 
 		<ul class="nav navbar-nav">
-			<li><%= link_to 'Photos', photos_path %></li>
-			<li><%= link_to 'Albums', albums_path %></li>
+			<li>
+				<%= link_to(photos_path) do %>
+					<span class="glyphicon glyphicon-camera"></span> Photos
+				<% end %>
+			</li>
+			<li>
+				<%= link_to(albums_path) do %>
+					<span class="glyphicon glyphicon-th"></span> Albums
+				<% end %>
+			</li>
 		</ul>
 		<form class="navbar-form navbar-left" role="search">
 			<div class="form-group">
@@ -18,8 +26,12 @@
 		</form>
 		<% if current_user %>
 			<ul class="nav navbar-nav">
-				<li><%= link_to current_user.username, photos_path %></li>
-				<li><%= link_to 'Sign Out', log_out_path %></li>
+				<li>
+					<%= link_to(photos_path) do %>
+						<span class="glyphicon glyphicon-user"></span> <%= current_user.username %>
+					<% end %>
+				</li>
+				<li><%= link_to "Sign Out", log_out_path %></li>
 			</ul>
 		<% else %>
 			<%= form_for :user, url: sign_in_path, html: { class: "navbar-form navbar-left" } do |f| %>
@@ -28,7 +40,7 @@
 				<%= f.submit "Login", class: "btn btn-default" %>
 			<% end %>
 			<ul class="nav navbar-nav navbar-right">
-				<li><%= link_to 'Register', new_user_path %></li>
+				<li><%= link_to "Register", new_user_path %></li>
 			</ul>
 		<% end %>
 	</div>

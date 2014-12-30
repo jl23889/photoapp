@@ -1,0 +1,13 @@
+<div class="thumbnail">
+  <%= link_to(photo) do %>
+    <%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %>
+  <% end %>
+  <div class="caption">
+    <p><%= photo.name %></p>
+    <p><%= photo.user.username if !photo.user.nil? %></p>
+    <% if photo.user == current_user %>
+      <%= link_to 'Edit', edit_photo_path(photo) %>
+      <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </div>
+</div>

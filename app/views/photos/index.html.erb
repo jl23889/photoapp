@@ -3,19 +3,7 @@
 <div class="container-fluid">
   <% @all_photos.each do |photo| %>
     <div class="col-xs-6 col-sm-3 col-md-2">
-      <div class="thumbnail">
-        <%= link_to(photo) do %>
-          <%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %>
-        <% end %>
-        <div class="caption">
-          <h3><%= photo.name %></h3>
-          <p><%= photo.user.username if !photo.user.nil? %></p>
-          <% if photo.user == current_user %>
-            <%= link_to 'Edit', edit_photo_path(photo) %>
-            <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
-        </div>
-      </div>
+      <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>
     </div>
   <% end %>
 </div>

@@ -14,7 +14,10 @@ Rails.application.routes.draw do
 
   resources :albums
 
-  get 'search' => "search#search"
+  get 'search' => 'search#search'
+
+  get 'user' => 'user#home'
+  get 'user/:id' => 'user#user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

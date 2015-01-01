@@ -6,4 +6,6 @@ class Album
 
   belongs_to :user
   has_and_belongs_to_many :photos
+
+  index({ name: 1 }, { unique: true })
 end

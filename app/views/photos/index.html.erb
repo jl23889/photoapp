@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <% @all_photos.each do |photo| %>
+  <% @photos.each do |photo| %>
     <div class="col-xs-6 col-sm-3 col-md-2">
       <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>
     </div>

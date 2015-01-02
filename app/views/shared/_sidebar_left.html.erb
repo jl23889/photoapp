@@ -1,0 +1,5 @@
+<% if !@photos.nil? %>
+	<%= render "photos/sidebar_left" %>
+<% elsif !@albums.nil? %>
+	<%= render "albums/sidebar_left" %>
+<% end %>

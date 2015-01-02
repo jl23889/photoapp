@@ -1,17 +1,5 @@
-<div class="container-fluid">
-  <% @photos.each do |photo| %>
-    <div class="col-xs-6 col-sm-3 col-md-2">
-      <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>
-    </div>
-  <% end %>
-
-  <div class="col-xs-6 col-sm-3 col-md-2">
-    <div class="thumbnail">
-      <div class="caption">
-        <%= link_to(new_photo_path) do %>
-          <span class="glyphicon glyphicon-upload"></span> Upload New Picture
-        <% end %>
-      </div>
-    </div>
+<% @photos.each do |photo| %>
+  <div class="col-xs-6 col-sm-3 col-md-2 thumbnail-frame">
+    <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>
   </div>
-</div>
+<% end %>

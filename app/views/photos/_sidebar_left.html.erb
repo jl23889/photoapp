@@ -1,0 +1,12 @@
+<ul class="nav nav-sidebar">
+	<li><%= link_to "Recently Added", photos_path%></li>
+	<li><%= link_to "Favorites", photos_path%></li>
+	<li><%= link_to "All", photos_path %></li>
+	<li><%= link_to "Mine", photos_path%></li>
+</ul>
+<ul class="nav nav-sidebar">
+	<li><%= link_to(new_photo_path) do %>
+    <span class="glyphicon glyphicon-cloud-upload"></span> Upload
+  <% end %>
+  </li>
+</ul>

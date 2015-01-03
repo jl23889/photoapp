@@ -21,8 +21,7 @@
       </div>
       <div class="caption">
         <%= album.name %>
-        <p><%= album.user.username if !album.user.nil? %></p>
-        <%= link_to 'Show', album %>
+        <p class="owner"><%= album.user.username if !album.user.nil? %></p>
         <% if album.user == current_user %>
           <%= link_to 'Edit', edit_album_path(album) %>
           <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %>

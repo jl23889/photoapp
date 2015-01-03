@@ -1,5 +1,5 @@
 <% @photos.each do |photo| %>
-  <div class="col-xs-6 col-sm-3 col-md-2 thumbnail-frame">
+  <div class="col-xs-4 col-sm-3 col-md-2 thumbnail-frame">
     <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>
   </div>
 <% end %>

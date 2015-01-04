@@ -1,5 +1,24 @@
+<div class="row" id="upload-container">
+</div>
+
 <% @photos.each do |photo| %>
   <div class="col-xs-4 col-sm-3 col-md-2 thumbnail-frame">
     <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>
   </div>
 <% end %>
+
+<!-- template for photo upload -->
+<div id="upload-template-holder">
+	<div class="col-xs-4 col-sm-3 col-md-2 thumbnail-frame" id="upload-template">
+	  <div class="thumbnail">
+	  	<img data-dz-thumbnail></img>
+		  <div class="caption">
+		    <p data-dz-name></p>
+		    <p data-dz-size></p>
+		    <div class="progress active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow='0'>
+		    	<div class="progress-bar progress-bar-success" style="width:0%" data-dz-uploadprogress></div>
+		    </div>
+		  </div>
+		</div>
+	</div>
+</div>

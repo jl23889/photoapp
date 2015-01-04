@@ -1,32 +1,38 @@
-<% @albums.each do |album| %>
-  <div class="col-xs-6 col-sm-3 col-md-2 thumbnail-frame">
-    <div class="thumbnail">
-      <div id=<%= "album_carousel_"+album.id.to_s %> class="carousel slide" data-ride="carousel" data-interval="false">
-        <div class="carousel-inner" role="listbox">
-          <% album.photos.each do |photo| %>
-            <div class="item">
-              <%= link_to(album) do %>
-                <%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %>
+<table class="table table-striped table-hover">
+  <% @albums.each do |album| %>
+    <tr class="album-frame">
+      <td>
+        <div class="thumbnail">
+          <div id=<%= "album_carousel_"+album.id.to_s %> class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner" role="listbox">
+              <% album.photos.each do |photo| %>
+                <div class="item">
+                  <%= link_to(album) do %>
+                    <%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %>
+                  <% end %>
+                </div>
               <% end %>
             </div>
+
+            <a class="left carousel-control" href=<%= "#album_carousel_"+album.id.to_s %> role="button" data-slide="prev">
+              <span class="glyphicon glyphicon-chevron-left" style="font-size:15px" aria-hidden="true"></span>
+            </a>
+            <a class="right carousel-control" href=<%= "#album_carousel_"+album.id.to_s %> role="button" data-slide="next">
+              <span class="glyphicon glyphicon-chevron-right" style="font-size:15px" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="caption">
+          <%= album.name %>
+          <p class="owner"><%= album.user.username if !album.user.nil? %></p>
+          <% if album.user == current_user %>
+            <%= link_to 'Edit', edit_album_path(album) %>
+            <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </div>
-
-        <a class="left carousel-control" href=<%= "#album_carousel_"+album.id.to_s %> role="button" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left" style="font-size:15px" aria-hidden="true"></span>
-        </a>
-        <a class="right carousel-control" href=<%= "#album_carousel_"+album.id.to_s %> role="button" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right" style="font-size:15px" aria-hidden="true"></span>
-        </a>
-      </div>
-      <div class="caption">
-        <%= album.name %>
-        <p class="owner"><%= album.user.username if !album.user.nil? %></p>
-        <% if album.user == current_user %>
-          <%= link_to 'Edit', edit_album_path(album) %>
-          <%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>

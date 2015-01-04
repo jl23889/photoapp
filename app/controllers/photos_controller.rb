@@ -38,6 +38,19 @@ class PhotosController < ApplicationController
     end
   end
 
+  # POST /photos/upload
+  def upload
+    @photo = Photo.new({
+      'name' =>params[:file].original_filename,
+      'image'=>params[:file]
+    })
+    @photo.user_id = session[:user_id]
+
+    if @photo.save
+      head :created, location: @photo
+    end
+  end
+
   # PATCH/PUT /photos/1
   # PATCH/PUT /photos/1.json
   def update

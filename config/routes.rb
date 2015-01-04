@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :albums
 
+  post 'photos/upload' => 'photos#upload'
   get 'search' => 'search#search'
 
   get 'user' => 'user#home'

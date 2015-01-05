@@ -3,10 +3,6 @@
     <%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %>
   <% end %>
   <div class="caption">
-    <p class="owner"><%= photo.user.username if !photo.user.nil? %></p>
-    <% if photo.user == current_user %>
-      <%= link_to 'Edit', edit_photo_path(photo) %>
-      <%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
+    <div class="owner"><%= photo.user.username if !photo.user.nil? %></div>
   </div>
 </div>

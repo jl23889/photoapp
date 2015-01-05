@@ -13,4 +13,17 @@
     <span class="glyphicon glyphicon-cloud-upload"></span> New Photo
   <% end %>
   </li>
+  <li>
+  <a class="btn btn-primary" data-toggle="collapse" href="#trash" aria-expanded="false" aria-controls="trash">Trash Bin</a>
+  <div class="collapse" id="trash">
+  	<button type="button" class="btn btn-primary" id="restore">
+			<span class="glyphicon glyphicon-share-alt"></span>
+		</button>
+		<button type="button" class="btn btn-primary" id="delete">
+			<span class="glyphicon glyphicon-trash"></span>
+		</button>
+  	<div class="well" id="trashbin">
+	  	1.Drag and drop photos here to add them to trash 2.Empty the trash using the trash can icon or restore them with the restore all icon
+		</div>
+	</div></li>
 </ul>

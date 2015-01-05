@@ -61,6 +61,10 @@ body > .container > .row > .main {
 	background-color: #428bca;
 }
 
+#trash {
+	width:100%;
+}
+
 .thumbnail-frame {
 	padding-left: 3px;
 	padding-right: 3px;
@@ -77,6 +81,9 @@ body > .container > .row > .main {
 	padding: 0;
 }
 
+.caption {
+	visibility: hidden
+}
 .caption > .owner {
 	float:right;
 }

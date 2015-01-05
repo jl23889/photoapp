@@ -11,13 +11,54 @@ $ ->
 	jQuery ->
 		token = $('meta[name="csrf-token"]').attr('content')
 		
-		$('body').dropzone(
-			{
+		$('body').dropzone({
 				headers: 'X-CSRF-TOKEN': token
 				url: 'photos/upload'
 				clickable: '#quick-upload'
 				previewsContainer: '#upload-container'
 				acceptedFiles: 'image/*'
 				previewTemplate: previewTemplate
+				init: ->
+					#scroll to top when file is added
+					this.on 'addedfile', (file) ->
+						$('body').animate scrollTop:0
 			}
 		)
+
+		$('.thumbnail-frame').hover(
+			-> $(this).find('.caption').css('visibility','visible')
+			-> $(this).find('.caption').css('visibility','hidden')
+		)
+
+		$gallery = $('#gallery')
+		$trash = $('#trash')
+		$('.thumbnail-frame', $gallery).draggable({
+				start: ->
+					$(this).css('z-index','1001')
+					return
+				revert: true
+				containment: 'body'
+				cursor: 'move'
+				stop: ->
+					$(this).css('z-index','')
+			}
+		)
+		$trash.droppable({
+				accept: '#gallery > .thumbnail-frame'
+				activeClass: 'ui-state-highlight'
+				drop: (event,ui) ->
+					deleteThumbnailFrame(ui.draggable)
+			}
+		)
+
+		$('#restore').click ->
+			$('.thumbnail-frame').show(700)
+			$('#trashbin .thumbnail').remove()
+		#$('#delete').click ->
+		#	$()
+
+		deleteThumbnailFrame = ($thumbnail) ->
+			$thumbnail.find('.thumbnail').clone().addClass('trash').appendTo('#trashbin')
+			$thumbnail.hide(400)
+
+

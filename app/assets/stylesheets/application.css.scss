@@ -86,6 +86,6 @@ body > .container > .row > .main {
 .caption {
 	visibility: hidden
 }
-.caption > .owner {
-	float:right;
+.caption > .photo-delete{
+	cursor:pointer;
 }

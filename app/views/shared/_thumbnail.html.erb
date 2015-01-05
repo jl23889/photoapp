@@ -3,6 +3,9 @@
     <%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %>
   <% end %>
   <div class="caption">
-    <div class="owner"><%= photo.user.username if !photo.user.nil? %></div>
+  	<% if photo.user == current_user %>
+	  	<span class="glyphicon glyphicon-trash photo-delete"></span>
+	  <% end %>
+	    <%= photo.user.username if !photo.user.nil? %>
   </div>
 </div>

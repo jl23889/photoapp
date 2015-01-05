@@ -54,8 +54,12 @@ $ ->
 		$('#restore').click ->
 			$('.thumbnail-frame').show(700)
 			$('#trashbin .thumbnail').remove()
-		#$('#delete').click ->
-		#	$()
+
+		$('.thumbnail-frame').click (e) ->
+			$thumbnail = $(this)
+			$target = $(e.target)
+			if $target.is('span.photo-delete')
+				deleteThumbnailFrame $thumbnail
 
 		deleteThumbnailFrame = ($thumbnail) ->
 			$thumbnail.find('.thumbnail').clone().addClass('trash').appendTo('#trashbin')

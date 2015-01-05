@@ -2,7 +2,9 @@ class Photo
 	include Mongoid::Document
 	include Mongoid::Paperclip
 	field :name
-	validates_presence_of :name	
+	field :category
+	validates_presence_of :name
+	validates_presence_of :category	
 
 	belongs_to :user
 	embeds_many :comments

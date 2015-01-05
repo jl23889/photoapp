@@ -4,7 +4,11 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+    if !params[:category].nil?
+      @photos = Photo.where(category: params[:category])
+    else
+      @photos = Photo.all
+    end
   end
 
   # GET /photos/1
@@ -83,6 +87,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:name,:image)
+      params.require(:photo).permit(:name,:category,:image)
     end
 end

@@ -16,6 +16,10 @@
     <%= f.text_field :name %>
   </div>
   <div class="field form-group">
+    <%= f.label :category %><br/>
+    <%= f.select "category", options_for_select(PhotosHelper::CATEGORIES_ENUM) %>
+  </div>
+  <div class="field form-group">
     <% if !@photo.image_file_name.nil? %> 
       <%= image_tag @photo.image.url %><br/>
     <% end %>

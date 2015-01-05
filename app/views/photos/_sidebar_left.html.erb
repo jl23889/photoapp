@@ -3,8 +3,40 @@
 		<button type="button" class="btn btn-primary" id="quick-upload">
 			<span class="glyphicon glyphicon-plus"></span>
 		</button></h3></li>
-	<li><%= link_to "Recently Added", photos_path%></li>
 	<li><%= link_to "Favorites", photos_path%></li>
+	<li>
+		<div class="panel-group" id="category-accordion" role="tablist" aria-multiselectable="true">
+			<div class="panel panel-default">
+				<div class="panel-heading" id ="category-heading" role="tab"> 
+					<a class="collapsed" data-toggle="collapse" data-parent="#category-accordion" href="#category-collapse" role="button" aria-expanded="true" aria-controls="category-collapse">Category 
+						<span class="caret"></span>
+					</a>
+				</div>
+				<div class="panel-collapse collapse" id="category-collapse" role="tabpanel" aria-labelledby="category-heading">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<%= link_to "Animal", photos_path(category: 'animal') %>
+						</li>
+						<li class="list-group-item">
+							<%= link_to "Fashion", photos_path(category: 'fashion') %>
+						</li>
+						<li class="list-group-item">
+							<%= link_to "Landscape", photos_path(category: 'landscape') %>
+						</li>
+						<li class="list-group-item">
+							<%= link_to "People", photos_path(category: 'people') %>
+						</li>
+						<li class="list-group-item">
+							<%= link_to "Plant", photos_path(category: 'plant') %>
+						</li>
+						<li class="list-group-item">
+							<%= link_to "Portrait", photos_path(category: 'portrait') %>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</li>
 	<li><%= link_to "All", photos_path %></li>
 	<li><%= link_to "Mine", photos_path%></li>
 </ul>

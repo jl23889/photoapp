@@ -1,6 +1,16 @@
 <div id="upload-container">
 </div>
 
+<!-- photo creation box -->
+<div class="col-xs-4 col-sm-3 col-md-2 thumbnail-frame photo-create">
+  <div class="thumbnail">
+  	<%= image_tag "blackbackground.png", class: "img-thumbnail" %> 
+	  <div class="caption">
+	  	<span class="glyphicon glyphicon-file pull-right"></span>
+	  </div>
+	</div>
+</div>
+
 <% @photos.each do |photo| %>
   <div class="col-xs-4 col-sm-3 col-md-2 thumbnail-frame">
     <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>

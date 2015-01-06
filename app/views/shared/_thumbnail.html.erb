@@ -1,6 +1,6 @@
 <div class="thumbnail">
   <%= link_to(photo) do %>
-    <%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %>
+  	<%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %> 
   <% end %>
   <div class="caption">
   	<% if photo.user == current_user %>

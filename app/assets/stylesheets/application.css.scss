@@ -17,10 +17,12 @@
 
 body {
 	padding-top: 51px;
-	background: url(corkboard.jpg);
 }
-body > .container > .row > .main {
+body > .main {
 	padding-top: 10px;
+}
+body > #gallery {
+	background: url(corkboard.jpg);
 }
 
 .sidebar {
@@ -79,13 +81,21 @@ body > .container > .row > .main {
 .thumbnail:focus {
 	border: 1px solid #c0c0c0;
 }
+.thumbnail > .caption {
+	overflow: hidden;
+}
 .img-thumbnail {
 	padding: 0;
 }
 
+.photo-create {
+}
+
 .caption {
-	visibility: hidden
 }
 .caption > .photo-delete{
+	cursor:pointer;
+}
+.caption > .glyphicon-file{
 	cursor:pointer;
 }

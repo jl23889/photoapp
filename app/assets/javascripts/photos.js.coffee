@@ -14,7 +14,7 @@ $ ->
 		$('body').dropzone({
 				headers: 'X-CSRF-TOKEN': token
 				url: 'photos/upload'
-				clickable: '#quick-upload'
+				clickable: '.photo-create'
 				previewsContainer: '#upload-container'
 				acceptedFiles: 'image/*'
 				previewTemplate: previewTemplate
@@ -34,7 +34,7 @@ $ ->
 		$trash = $('#trash')
 		$('.thumbnail-frame', $gallery).draggable({
 				start: ->
-					$(this).css('z-index','1001')
+					$(this).css('z-index','1000')
 					return
 				revert: true
 				containment: 'body'

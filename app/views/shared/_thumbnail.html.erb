@@ -2,7 +2,7 @@
   <%= link_to(photo) do %>
   	<%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %> 
   <% end %>
-  <div class="caption">
+  <div class="caption invisible">
   	<% if photo.user == current_user %>
 	  	<span class="glyphicon glyphicon-trash photo-delete"></span>
 	  <% end %>

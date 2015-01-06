@@ -26,8 +26,8 @@ $ ->
 		)
 
 		$('.thumbnail-frame').hover(
-			-> $(this).find('.caption').css('visibility','visible')
-			-> $(this).find('.caption').css('visibility','hidden')
+			-> $(this).find('.caption').removeClass('invisible')
+			-> $(this).find('.caption').addClass('invisible')
 		)
 
 		$gallery = $('#gallery')

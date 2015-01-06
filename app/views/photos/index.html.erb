@@ -1,34 +1,107 @@
-<div id="upload-container">
-</div>
+<div class="container">
+		<div class="row">
+			<div class="col-xs-10 col-md-10" id="gallery">
+				<% @photos.each do |photo| %>
+			    <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>
+				<% end %>
 
-<!-- photo creation box -->
-<div class="col-xs-4 col-sm-3 col-md-2 thumbnail-frame photo-create">
-  <div class="thumbnail">
-  	<%= image_tag "blackbackground.png", class: "img-thumbnail" %> 
-	  <div class="caption">
-	  	<span class="glyphicon glyphicon-file pull-right"></span>
-	  </div>
-	</div>
-</div>
+				<!-- template for photo upload -->
+				<div id="upload-template-holder">
+					<div class="col-xs-2 col-md-2 thumbnail-frame" id="upload-template">
+					  <div class="thumbnail">
+					  	<img class="img-thumbnail" data-dz-thumbnail></img>
+						  <div class="caption">
+						    <p data-dz-name></p>
+						    <p data-dz-size></p>
+						    <div class="progress active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow='0'>
+						    	<div class="progress-bar progress-bar-success" style="width:0%" data-dz-uploadprogress></div>
+						    </div>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-<% @photos.each do |photo| %>
-  <div class="col-xs-4 col-sm-3 col-md-2 thumbnail-frame">
-    <%= render partial: 'shared/thumbnail', locals: {photo: photo} %>
-  </div>
-<% end %>
+			<div class="col-xs-2 col-md-2" id="sidebuttons">
+				<div class="affix" id="upload-container">
+				</div>
+				<!-- photo creation box -->
+				<div class="thumbnail-frame-static photo-create hidden affix">
+				  <div class="thumbnail">
+				  	<%= image_tag "blackbackground.png", class: "img-thumbnail" %> 
+					  <div class="caption">
+					  	<div class="caption-buttons invisible">
+						 		<div class="caption-center">
+							  	<span class="glyphicon glyphicon-plus"></span>
+								</div>
+							</div>
+					  </div>
+					</div>
+				</div>
+				<!-- drag and drop trashbin -->
+				<div class="well hidden affix" id="trashbin">
+			  	1.Drag and drop photos here to add them to trash 2.Empty the trash using the trash can icon or restore them with the restore all icon
+			  	<button class="btn btn-primary btn-circle" id="button-restore">
+						<span class="glyphicon glyphicon-share-alt flipped"></span>
+					</button>
+					<button class="btn btn-danger btn-circle" id="button-delete">
+						<span class="glyphicon glyphicon-trash"></span>
+					</button>
+					<button class="btn btn-default btn-circle" id="button-close-trash">
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</div>
 
-<!-- template for photo upload -->
-<div id="upload-template-holder">
-	<div class="col-xs-4 col-sm-3 col-md-2 thumbnail-frame" id="upload-template">
-	  <div class="thumbnail">
-	  	<img class="img-thumbnail" data-dz-thumbnail></img>
-		  <div class="caption">
-		    <p data-dz-name></p>
-		    <p data-dz-size></p>
-		    <div class="progress active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow='0'>
-		    	<div class="progress-bar progress-bar-success" style="width:0%" data-dz-uploadprogress></div>
-		    </div>
-		  </div>
+				<!-- sidebuttons -->
+				<div class="well well-sm well-sidebutton affix">
+					<nav class="col-xs-2 col-sm-2 col-md-2 sidebuttons">
+						<ul class="nav">
+							<li>
+								<button class="btn btn-primary btn-circle" id="button-upload">
+									<span class="glyphicon glyphicon-camera"></span>
+								</button>
+							</li>
+							<li>
+								<button class="btn btn-primary btn-circle">
+									<span class="glyphicon glyphicon-book"></span>
+								</button>
+							</li>
+							<li>
+								<button class="btn btn-warning btn-circle" id="button-trash">
+									<span class="glyphicon glyphicon-trash"></span>
+								</button>
+							</li>
+							<li>
+								<button class="btn btn-warning btn-circle disabled invisible"></button>
+							</li>
+						</ul>
+					</nav>
+					<nav class="col-xs-4 col-xs-offset-4 col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 sidebuttons">
+						<ul class="nav">
+							<li>
+								<button class="btn btn-success btn-circle">
+									<span class="glyphicon glyphicon-calendar"></span>
+								</button>
+							</li>
+							<li>
+								<button class="btn btn-success btn-circle">								
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</li>
+							<li>
+								<button class="btn btn-warning btn-circle disabled invisible"></button>
+							</li>
+							<li>
+								<button class="btn btn-warning btn-circle disabled invisible"></button>
+							</li>
+							<li>
+								<button class="btn btn-info btn-circle" id="button-scroll-top">
+									<span class="glyphicon glyphicon-arrow-up"></span>
+								</button>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
 		</div>
 	</div>
-</div>

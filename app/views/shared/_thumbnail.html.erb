@@ -1,11 +1,24 @@
-<div class="thumbnail">
-  <%= link_to(photo) do %>
-  	<%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %> 
-  <% end %>
-  <div class="caption invisible">
-  	<% if photo.user == current_user %>
-	  	<span class="glyphicon glyphicon-trash photo-delete"></span>
+<div class="col-md-6 thumbnail-frame">
+	<div class="thumbnail">
+	  <%= link_to(photo) do %>
+	  	<%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %> 
 	  <% end %>
-	    <%= photo.user.username if !photo.user.nil? %>
-  </div>
+	  <div class="caption">
+	  	<div class="caption-buttons invisible">
+		 		<div class="caption-center">
+		 			<button class="btn btn-default btn-xs">
+			  		<span class="glyphicon glyphicon-repeat"></span>
+			  	</button>
+				</div>
+				<!-- <% if photo.user == current_user %>
+			  	<div class="glyphicon glyphicon-trash photo-delete"></div>
+			  <% end %> -->
+			</div>
+			<div class="caption-text hidden">
+				<%= photo.user.username if !photo.user.nil? %>
+			</div>
+			
+	<!-- 	    <%= photo.user.username if !photo.user.nil? %> -->
+	  </div>
+	</div>
 </div>

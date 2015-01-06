@@ -14,24 +14,24 @@ $ ->
 		$('body').dropzone({
 				headers: 'X-CSRF-TOKEN': token
 				url: 'photos/upload'
-				clickable: '.photo-create'
+				clickable: '#button-upload'
 				previewsContainer: '#upload-container'
 				acceptedFiles: 'image/*'
 				previewTemplate: previewTemplate
 				init: ->
 					#scroll to top when file is added
 					this.on 'addedfile', (file) ->
-						$('body').animate scrollTop:0
+						$('.well-sidebutton').hide()
 			}
 		)
 
 		$('.thumbnail-frame').hover(
-			-> $(this).find('.caption').removeClass('invisible')
-			-> $(this).find('.caption').addClass('invisible')
+			-> $(this).find('.caption-buttons').removeClass('invisible')
+			-> $(this).find('.caption-buttons').addClass('invisible')
 		)
 
 		$gallery = $('#gallery')
-		$trash = $('#trash')
+		$trash = $('#trashbin')
 		$('.thumbnail-frame', $gallery).draggable({
 				start: ->
 					$(this).css('z-index','1000')
@@ -51,9 +51,13 @@ $ ->
 			}
 		)
 
-		$('#restore').click ->
-			$('.thumbnail-frame').show(700)
+		$('#button-restore').click ->
+			$('.thumbnail-frame').fadeTo('slow',1)
 			$('#trashbin .thumbnail').remove()
+
+		$('#button-close-trash').click ->
+			$('#trashbin').addClass('hidden')
+			$('.well-sidebutton').fadeIn()
 
 		$('.thumbnail-frame').click (e) ->
 			$thumbnail = $(this)
@@ -63,6 +67,13 @@ $ ->
 
 		deleteThumbnailFrame = ($thumbnail) ->
 			$thumbnail.find('.thumbnail').clone().addClass('trash').appendTo('#trashbin')
-			$thumbnail.hide(400)
+			$thumbnail.fadeTo('slow', 0.3)
+
+		$('#button-trash').click ->
+			$('#trashbin').removeClass('hidden')
+			$('.well-sidebutton').fadeOut()
+
+		$('#button-scroll-top').click ->
+			$('body').animate scrollTop:0
 
 

@@ -18,11 +18,20 @@
 body {
 	padding-top: 51px;
 }
-body > .main {
+body > #gallery {
 	padding-top: 10px;
 }
-body > #gallery {
+body {
 	background: url(corkboard.jpg);
+}
+
+.flipped {
+	-moz-transform: scaleX(-1);
+	-o-transform: scaleX(-1);
+	-webkit-transform: scaleX(-1);
+	transform: scaleX(-1);
+	filter: FlipH;
+	-ms-filter: "FlipH";
 }
 
 .sidebar {
@@ -70,32 +79,43 @@ body > #gallery {
 }
 
 .thumbnail-frame {
-	padding-left: 3px;
-	padding-right: 3px;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 180px;
 }
 .thumbnail {
 	border: 1px solid #ffffff;
 	border-radius: 0;
+	background-color: #F5F5F5;
 }
 .thumbnail:hover,
 .thumbnail:focus {
 	border: 1px solid #c0c0c0;
 }
-.thumbnail > .caption {
-	overflow: hidden;
-}
 .img-thumbnail {
 	padding: 0;
-}
-
-.photo-create {
-}
-
-.caption {
 }
 .caption > .photo-delete{
 	cursor:pointer;
 }
-.caption > .glyphicon-file{
-	cursor:pointer;
+.caption > .caption-buttons > .caption-center{
+	text-align: center;
 }
+.caption > .glyphicon{
+	margin-right: 2px;
+}
+
+.well-sidebutton {
+	background-color: black;
+	margin-top: 30px;
+}
+.btn-circle {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	padding: 6px 0;
+	font-size: 25px;
+	border-radius: 50%;
+	margin-bottom: 25px;
+}
+

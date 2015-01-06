@@ -46,7 +46,8 @@ class PhotosController < ApplicationController
   def upload
     @photo = Photo.new({
       'name' =>params[:file].original_filename,
-      'image'=>params[:file]
+      'image'=>params[:file],
+      'category'=>'none'
     })
     @photo.user_id = session[:user_id]
 

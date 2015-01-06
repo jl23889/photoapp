@@ -11,19 +11,34 @@ $ ->
 	jQuery ->
 		token = $('meta[name="csrf-token"]').attr('content')
 		
-		$('body').dropzone({
+		photoDropzone = new Dropzone(document.body,
+				autoQueue: false
+				parallelUploads: 10
 				headers: 'X-CSRF-TOKEN': token
 				url: 'photos/upload'
 				clickable: '#button-upload'
 				previewsContainer: '#upload-container'
 				acceptedFiles: 'image/*'
 				previewTemplate: previewTemplate
-				init: ->
-					#scroll to top when file is added
-					this.on 'addedfile', (file) ->
-						$('.well-sidebutton').hide()
-			}
 		)
+
+		# display modal
+		photoDropzone.on 'addedfile', (file) ->
+			$('#modal-upload-container').modal('show')
+			return
+
+		# Close modal and refresh from server on uploading queue
+		photoDropzone.on 'queuecomplete', (file) ->
+		  $('#modal-upload-container').modal('hide')
+		  location.reload(true)
+		  return
+
+		$('.start-all').click ->
+			photoDropzone.enqueueFiles(photoDropzone.getFilesWithStatus(Dropzone.ADDED))
+		
+		# Remove all files from queue when modal is hidden
+		$('#modal-upload-container').on 'hidden.bs.modal', (e) ->
+		  photoDropzone.removeAllFiles(true)
 
 		$('.thumbnail-frame').hover(
 			-> $(this).find('.caption-buttons').removeClass('invisible')

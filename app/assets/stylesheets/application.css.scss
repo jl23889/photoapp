@@ -15,14 +15,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-body {
-	padding-top: 51px;
-}
 body > #gallery {
 	padding-top: 10px;
 }
 body {
 	background: url(corkboard.jpg);
+}
+
+#homepage-carousel > .item > img {
+	width: 150%;
+}
+#carousel-sign-in > .carousel-indicators {
+	position: fixed;
+}
+.sign-in {
+	top: 40%;
+	position: fixed;
+	z-index: 1000;
+	margin: auto;
+	background-color: rgba(0,0,0,0.5);
 }
 
 .flipped {

@@ -3,9 +3,10 @@
 <head>
   <title>Photoapp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <style><%= yield :stylesheets %></style>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <%= render "shared/navbar" %>
+  <%= render '/shared/navbar' %>
 </head>
 <body>
 <!-- 	<% if current_user %>

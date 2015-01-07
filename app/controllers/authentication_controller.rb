@@ -1,6 +1,7 @@
 class AuthenticationController < ApplicationController
 	def sign_in
 		@user = User.new
+		@photos = Photo.where(category: 'homepage')
 	end
 
 	def login
@@ -10,7 +11,7 @@ class AuthenticationController < ApplicationController
 
 		if @user
 			session[:user_id] = @user.id.to_s
-			redirect_to :root
+			redirect_to photos_path
 		else  
 			render action: "sign_in"
 		end
@@ -27,7 +28,7 @@ class AuthenticationController < ApplicationController
 			if @user.valid?
 				@user.save
 				session[:user_id] = @user.id.to_s
-				redirect_to :root
+				redirect_to photos_path
 			else 
 				render action: "new_user"
 			end

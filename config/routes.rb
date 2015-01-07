@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'photos#index'
+  root 'authentication#sign_in'
 
   get 'sign_in' => 'authentication#sign_in'
   post 'sign_in' => 'authentication#login'

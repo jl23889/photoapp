@@ -1,1 +1,38 @@
-<h1>Error signing in! Please check your username and password.</h1>
+<div class="col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-4 col-xs-offset-4"> 
+	<div class="panel panel-default sign-in">
+		<%= form_for :user, url: sign_in_path do |f| %>
+			<%= f.text_field :username, value: "", placeholder: "Username" %>
+			<%= f.text_field :password, value: "", placeholder: "Password" %>
+			<%= f.submit "Login", class: "btn btn-primary" %>
+		<% end %>
+	</div>
+</div>
+
+<div class="carousel slide" id="carousel-sign-in" data-interval="20000" data-pause="none" data-ride="carousel">
+	<ol class="carousel-indicators">
+		<li data-target="#carousel-sign-in" data-slide-to="0" class="active"></li>
+		<li data-target="#carousel-sign-in" data-slide-to="1"></li>
+		<li data-target="#carousel-sign-in" data-slide-to="2"></li>
+	</ol>
+
+	<div class="carousel-inner" id="homepage-carousel" role="listbox">
+		<div class="item active">
+			<%= image_tag @photos[2].image.url %> 
+			<div class="carousel-caption">
+				<h3><button type="button" class="btn btn-lg btn-primary scrollTop">Get started</button></h3>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag @photos[1].image.url %> 
+			<div class="carousel-caption">
+				<h3><button type="button" class="btn btn-lg btn-primary scrollTop">Get started</button></h3>
+			</div>
+		</div>
+		<div class="item">
+			<%= image_tag @photos[0].image.url %> 
+			<div class="carousel-caption">
+				<h3><button type="button" class="btn btn-lg btn-primary scrollTop">Get started</button></h3>
+			</div>
+		</div>
+	</div>
+</div>

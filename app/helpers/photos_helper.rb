@@ -6,6 +6,7 @@ module PhotosHelper
 		'landscape',
 		'people',
 		'plant',
-		'portrait'
+		'portrait',
+		'homepage'
 	]
 end

@@ -80,6 +80,24 @@ class PhotosController < ApplicationController
     end
   end
 
+  def trash
+    @trashbin = Photo.find(params[:photo_ids])
+    destroyed_photos = []
+    @trashbin.each do |trash|
+      if trash.user_id.eql?(current_user)
+        if trash.destroy
+          #TODO: display destroyed_photos via ajax
+          destroyed_photos.push trash.id
+        end
+      end
+    end
+
+    respond_to do |format|
+      format.js { render nothing: true }
+    end
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo

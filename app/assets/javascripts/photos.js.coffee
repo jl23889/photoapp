@@ -70,6 +70,16 @@ $ ->
 			$('.thumbnail-frame').fadeTo('slow',1)
 			$('#trashbin .thumbnail').remove()
 
+		$('#button-empty-trash').click ->
+			trashbin=[]
+			$('#trashbin .trash').each ->
+				trashbin.push $(this).data('photo-id')
+			$.ajax(
+				type: 'PUT'
+				url: '/photos/trash'
+				data: { photo_ids: trashbin }
+			)
+
 		$('#button-close-trash').click ->
 			$('#trashbin').addClass('hidden')
 			$('.well-sidebutton').fadeIn()
@@ -82,7 +92,7 @@ $ ->
 
 		deleteThumbnailFrame = ($thumbnail) ->
 			$thumbnail.find('.thumbnail').clone().addClass('trash').appendTo('#trashbin')
-			$thumbnail.fadeTo('slow', 0.3)
+			$thumbnail.fadeTo('slow', 0.2)
 
 		$('#button-trash').click ->
 			$('#trashbin').removeClass('hidden')

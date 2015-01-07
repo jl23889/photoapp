@@ -8,13 +8,15 @@ Rails.application.routes.draw do
   get 'new_user' => 'authentication#new_user'
   put 'new_user' => 'authentication#register'
 
+  put 'photos/trash' => 'photos#trash'
+  post 'photos/upload' => 'photos#upload'
+
   resources :photos do 
     resources :comments
   end
 
   resources :albums
 
-  post 'photos/upload' => 'photos#upload'
   get 'search' => 'search#search'
 
   get 'user' => 'user#home'

@@ -1,5 +1,5 @@
 <div class="col-md-6 thumbnail-frame">
-	<div class="thumbnail">
+	<div class="thumbnail" data-photo-data=<%=photo%> data-photo-id=<%=photo.id%>>
 	  <%= link_to(photo) do %>
 	  	<%= image_tag photo.image.url(:thumb), class: "img-thumbnail" %> 
 	  <% end %>

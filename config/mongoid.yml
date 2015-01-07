@@ -67,3 +67,12 @@ test:
         # low amounts for fast failures.
         max_retries: 1
         retry_interval: 0
+
+production:
+  sessions:
+    default:
+      uri: <%= ENV['mongodb://jlee23889:albertjoon1@dogen.mongohq.com:10050/photoapp-db'] %>
+      options:
+        skip_version_check: true
+        safe: true
+  

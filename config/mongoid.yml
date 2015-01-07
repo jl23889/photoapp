@@ -58,9 +58,7 @@ development:
 test:
   sessions:
     default:
-      database: photoapp_test
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['mongodb://jlee23889:albertjoon1@dogen.mongohq.com:10050/photoapp-db'] %>
       options:
         read: primary
         # In the test environment we lower the retries and retry interval to

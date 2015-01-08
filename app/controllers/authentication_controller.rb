@@ -1,7 +1,6 @@
 class AuthenticationController < ApplicationController
 	def sign_in
 		@user = User.new
-		@photos = Photo.where(category: 'homepage')
 	end
 
 	def login

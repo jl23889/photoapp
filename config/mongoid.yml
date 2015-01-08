@@ -5,11 +5,7 @@ development:
     default:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: photoapp_development
-      # Provides the hosts the default session can connect to. Must be an array
-      # of host:port pairs. (required)
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -58,7 +54,7 @@ development:
 test:
   sessions:
     default:
-      uri: <%= ENV['mongodb://jlee23889:albertjoon1@dogen.mongohq.com:10050/photoapp-db'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         read: primary
         # In the test environment we lower the retries and retry interval to
@@ -69,7 +65,7 @@ test:
 production:
   sessions:
     default:
-      uri: <%= ENV['mongodb://jlee23889:albertjoon1@dogen.mongohq.com:10050/photoapp-db'] %>
+      uri: <%= ENV['MONGOHQ_URL'] %>
       options:
         skip_version_check: true
         safe: true

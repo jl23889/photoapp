@@ -74,4 +74,5 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   Paperclip.options[:command_path] = "/usr/local/bin/"
+  ENV['SECRET_KEY_BASE'] = 431b252bd5810eaa4eb1d994a62700e6b68cc6bedf73c4c451d1109bbe149ddd1fe54e2f3d52863f1ec6db1b11d7df30d13dc128cd3a5e467c2385043e22ed85
 end

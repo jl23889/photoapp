@@ -8,7 +8,7 @@
 	</div>
 </div>
 
-<div class="carousel slide carousel-fade" id="carousel-sign-in" data-interval="20000" data-pause="none" data-ride="carousel">
+<div class="carousel slide carousel-fade" id="carousel-sign-in" data-interval="10000" data-pause="none" data-ride="carousel">
 	<ol class="carousel-indicators">
 		<li data-target="#carousel-sign-in" data-slide-to="0" class="active"></li>
 		<li data-target="#carousel-sign-in" data-slide-to="1"></li>
@@ -17,19 +17,13 @@
 
 	<div class="carousel-inner" id="homepage-carousel" role="listbox">
 		<div class="item active">
-			<%= image_tag @photos[2].image.url %> 
+			<%= image_tag 'signinslidedefault0.jpeg' %> 
 			<div class="carousel-caption">
 				<h3><button type="button" class="btn btn-lg btn-primary scrollTop">Get started</button></h3>
 			</div>
 		</div>
 		<div class="item">
-			<%= image_tag @photos[1].image.url %> 
-			<div class="carousel-caption">
-				<h3><button type="button" class="btn btn-lg btn-primary scrollTop">Get started</button></h3>
-			</div>
-		</div>
-		<div class="item">
-			<%= image_tag @photos[0].image.url %> 
+			<%= image_tag 'signinslidedefault1.jpeg' %> 
 			<div class="carousel-caption">
 				<h3><button type="button" class="btn btn-lg btn-primary scrollTop">Get started</button></h3>
 			</div>
